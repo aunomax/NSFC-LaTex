@@ -1,3 +1,5 @@
+% !TEX program = xelatex
+
 % https://github.com/MCG-NKU/NSFC-LaTex
 % by Ming-Ming Cheng https://mmcheng.net
 % 关于VsCode LaTeX的配置 https://www.cnblogs.com/ourweiguan/p/11785660.html
@@ -310,15 +312,15 @@ Research on target recognition ***
 为了理解种群表型多样性如何影响种群自聚集，本课题拟研究一类具间接信号产生的生物趋化模型解的定性性质，着重研究聚集现象与爆破性质。其典型形式为
 \begin{align}
     \begin{cases}
-      \label{sys: ks isp ppp}
+      \label{sys: ks isp pppf}
         u_t =  \nabla\cdot(D(u)\nabla u - S(u)\nabla v) + f(u,w),& x\in\Omega, t>0,\\
         v_t =  \Delta v - v + w,& x\in\Omega,	 t>0,\\
         \tau w_t  = \varepsilon\Delta w - w + u, & x\in\Omega, t > 0, 
     \end{cases}
-    \end{align}
+\end{align}
 其中$\tau,\varepsilon\in\{0,1\}$. 作为一个具体的应用例子，该模型描述了山松甲壳虫的集群攻击行为，其中$u=u(x,t)$表示飞行甲壳虫的密度，$w=w(x,t)$表示筑巢甲壳虫的密度，$v=v(x,t)$表示甲壳虫费洛蒙的浓度，$f(u,w)$表示甲壳虫的出生、死亡以及筑巢与飞行甲壳虫之间的转化机制。该模型是经典Keller-Segel趋化模型的简单扩展，其中种群被划分为两种不同的表型：一种执行趋化性运动，另一种则生产趋化因子。
 
-当$D(u)\equiv1$，$S(u)\equiv u$，$f(u,w)\equiv0$并且$\tau=\varepsilon=0$时，就从模型\eqref{sys: ks isp ppp}得到了经典趋化模型
+当$D(u)\equiv1$，$S(u)\equiv u$，$f(u,w)\equiv0$并且$\tau=\varepsilon=0$时，就从模型\eqref{sys: ks isp pppf}得到了经典趋化模型
 \begin{equation}
     \label{sys: ks1970}
     \begin{cases}
@@ -338,9 +340,53 @@ Research on target recognition ***
 \end{equation} 
 许多学者研究了该模型爆破的临界指标问题。在超临界指标$p+q>2/n$下，趋化主导扩散，在$n$维空间的小球中存在径向对称初值使得解有限或无穷时刻爆破，其中$n\geq2$，而且如果进一步假设$p>1$或$q>1$，存在径向对称初值使得解在有限时刻爆破；当次临界条件$p+q<2/n$时，扩散支配趋化聚集，解总是整体存在且一致有界的；临界情形$p+q=2/n$时，小质量初值总是整体存在且一致有界的，而存在大质量径向对称初值使得解无界。另一方面，当趋化灵敏度较弱$q\leq0$时，解总是整体存在的，所以即使趋化强度较弱但仍主导扩散时，存在径向对称解在无穷时刻爆破。而且对模型~\eqref{sys: ksvf}的抛物-椭圆简化问题，已经证明了只要$p+q>2/n$并且$q>0$，总存在径向对称初值使得解有限时刻爆破。因此学者提出猜想$q=0$是模型~\eqref{sys: ksvf}整体适定与有限时刻奇性形成的第二临界指标，并放松了模型~\eqref{sys: ksvf}有限时刻爆破的指标范围。
 
-当引入种群表型异性机制时，模型~\eqref{sys: ks1970}就变回了具间接信号产生的趋化模型~\eqref{sys: ks isp ppp}，其中$D(u)\equiv1$，$S(u)\equiv u$，$\tau=1$但$\varepsilon=0$。当考虑种群的出生与死亡时，即$f(u,w)=\mu u(1-u)$，其中$\mu>0$是个常数，在三维有界区域中解总是整体存在且一致有界的；但是需要假设$\mu$大于某个给定常数才能得到经典趋化-生长系统的解是一致有界的，这反映了间接信号趋化模型的时间松弛机制具有有界支持效应。不考虑种群的出生与死亡时$f(u,w)\equiv0$，Tao和Winkler最早研究该模型的的J\"ager-Luckhaus变体，即模型中的第二个方程替换为$0 = \Delta v  - \int_\Omega w dx/|\Omega| + w$，并发现在圆盘区域中，虽然径向对称解总是整体存在的，依然存在一个无穷时刻爆破的临界质量现象：存在超过$8\pi$质量的径向对称初值使得解在无穷时刻爆破，但当初始质量低于$8\pi$时，径向对称解总是一致有界的。申请人与合作者发现该模型的J\"ager-Luckhaus变体会发生无穷时刻在一点集中所有初值质量的新现象。在平面有界光滑区域中，虽然解总是整体存在的，但依然存在一个无穷时刻爆破的临界质量现象：当初始质量超过$4\pi$且不为其整数倍时，存在具有该质量的初值使得解在无穷时刻爆破；当初始质量低于$4\pi$时，解总是整体存在且一致有界的。当考虑类型转化机制时，爆破的临界质量与种群初始总量之和有关。因为间接信号机制具有爆破抑制作用，所以在三维及以上是否会发生有限时刻爆破依然是公开问题。
+当引入种群表型异性机制时，模型~\eqref{sys: ks1970}就变回了具间接信号产生的趋化模型~\eqref{sys: ks isp pppf}，其中$D(u)\equiv1$，$S(u)\equiv u$，$\tau=1$但$\varepsilon=0$。当考虑种群的出生与死亡时，即$f(u,w)=\mu u(1-u)$，其中$\mu>0$是个常数，在三维有界区域中解总是整体存在且一致有界的；但是需要假设$\mu$大于某个给定常数才能得到经典趋化-生长系统的解是一致有界的，这反映了间接信号趋化模型的时间松弛机制具有有界支持效应。不考虑种群的出生与死亡时$f(u,w)\equiv0$，Tao和Winkler最早研究该模型的的J\"ager-Luckhaus变体，即模型中的第二个方程替换为$0 = \Delta v  - \int_\Omega w dx/|\Omega| + w$，并发现在圆盘区域中，虽然径向对称解总是整体存在的，依然存在一个无穷时刻爆破的临界质量现象：存在超过$8\pi$质量的径向对称初值使得解在无穷时刻爆破，但当初始质量低于$8\pi$时，径向对称解总是一致有界的。申请人与合作者发现该模型的J\"ager-Luckhaus变体会发生无穷时刻在一点集中所有初值质量的新现象。在平面有界光滑区域中，虽然解总是整体存在的，但依然存在一个无穷时刻爆破的临界质量现象：当初始质量超过$4\pi$且不为其整数倍时，存在具有该质量的初值使得解在无穷时刻爆破；当初始质量低于$4\pi$时，解总是整体存在且一致有界的。当考虑类型转化机制时，爆破的临界质量与种群初始总量之和有关。因为间接信号机制具有爆破抑制作用，所以在三维及以上是否会发生有限时刻爆破依然是公开问题。
 
-对于具间接信号产生的完全抛物趋化模型~\eqref{sys: ks isp ppp}，其中$\tau=\varepsilon=1$，当$D(u)=1$并且$S(u)=u$时，由于抛物光滑化效应，模型在三维及以下的解总是整体存在且一致有界的，但存在一个四维临界质量现象：当初始质量低于$64\pi^2$时，解总是整体存在且一致有界的；存在超过$64\pi^2$但不为其整数倍质量的初值使得解在有限或无穷时刻爆破。当考虑体积填充效应时，即$D(u)=(1+u)^{-p}$且$S(u)=(1+u)^{q-1}u$，当扩散主导趋化时$p+q<\max\{1+2/n,4/n\}$，解都是整体存在且一致有界的。Tao和Winkler最早研究该模型的J\"ager-Luckhaus变体并考虑了潜在的转化机制，并发现在三维及以上的小球区域中，当$p+q>4/n$并且$q>2/n$时，存在径向对称初值使得解在有限时刻爆破，并且当$q<2/n$时，解都是整体存在且一致有界的。申请人与合作者证明了在四维及以上的小球区域中，当$p+q>4/n$并且$q<2/n$时，具间接信号产生的完全抛物问题存在径向对称初值使得解有限时刻爆破。
+对于具间接信号产生的完全抛物趋化模型~\eqref{sys: ks isp pppf}，其中$\tau=\varepsilon=1$，当$D(u)=1$并且$S(u)=u$时，由于抛物光滑化效应，模型在三维及以下的解总是整体存在且一致有界的，但存在一个四维临界质量现象：当初始质量低于$64\pi^2$时，解总是整体存在且一致有界的；存在超过$64\pi^2$但不为其整数倍质量的初值使得解在有限或无穷时刻爆破。当考虑体积填充效应时，即$D(u)=(1+u)^{-p}$且$S(u)=(1+u)^{q-1}u$，当扩散主导趋化时$p+q<\max\{1+2/n,4/n\}$，解都是整体存在且一致有界的。Tao和Winkler最早研究该模型的J\"ager-Luckhaus变体并考虑了潜在的转化机制，并发现在三维及以上的小球区域中，当$p+q>4/n$并且$q>2/n$时，存在径向对称初值使得解在有限时刻爆破，并且当$q<2/n$时，解都是整体存在且一致有界的。申请人与合作者证明了在四维及以上的小球区域中，当$p+q>4/n$并且$q<2/n$时，具间接信号产生的完全抛物问题存在径向对称初值使得解无穷时刻爆破。为了探索有限时刻爆破机制，申请人与合作者研究了模型~\eqref{sys: ks isp pppf}的一个Nagai型变体$\tau=0$，并证明了在五维及以上的小球区域中，对任给质量都存在具有该质量的径向对称初值使得解有限时刻爆破，并证明了这样的初值在某个合适的拓扑意义下是稠密的。
+
+\NsfcSection{32}{主要研究内容}{}
+
+研究具间接信号产生的抛物-抛物-椭圆趋化方程四维超临界质量条件下有限时刻爆破
+\begin{align}
+    \begin{cases}
+      \label{sys: ks isp ppe}
+        u_t =  \nabla\cdot(\nabla u - u\nabla v),& x\in\Omega, t>0,\\
+        v_t =  \Delta v - v + w,& x\in\Omega,	 t>0,\\
+        0   = \Delta w - w + u, & x\in\Omega, t > 0, 
+    \end{cases}
+\end{align}
+
+研究具间接信号产生的完全抛物趋化方程五维及以上有限时刻爆破
+\begin{align}
+    \begin{cases}
+      \label{sys: ks isp ppp}
+        u_t =  \nabla\cdot(\nabla u - u\nabla v),& x\in\Omega, t>0,\\
+        v_t =  \Delta v - v + w,& x\in\Omega,	 t>0,\\
+        w_t  = \Delta w - w + u, & x\in\Omega, t > 0, 
+    \end{cases}
+\end{align}
+
+研究具间接信号产生的抛物-抛物-ODE趋化方程三维及以上有限时刻爆破
+\begin{align}
+    \begin{cases}
+      \label{sys: ks isp ppodef}
+        u_t =  \nabla\cdot(\nabla u - u\nabla v) + f(u,w),& x\in\Omega, t>0,\\
+        v_t =  \Delta v - v + w,& x\in\Omega,	 t>0,\\
+        w_t  = - w + u, & x\in\Omega, t > 0, 
+    \end{cases}
+\end{align}
+其中$f(u,w)=0$或$f(u,w)=-u+w$。
+
+研究具间接信号产生的完全抛物趋化模型的三维粘性消失极限问题
+\begin{align}
+    \begin{cases}
+      \label{sys: ks isp ppviscosity}
+        u_t =  \nabla\cdot(\nabla u - u\nabla v) + f(u,w),& x\in\Omega, t>0,\\
+        v_t =  \Delta v - v + w,& x\in\Omega,	 t>0,\\
+        w_t  = \varepsilon \Delta w - w + u, & x\in\Omega, t > 0, 
+    \end{cases}
+\end{align}
+其中$f(u,w)=0$或$f(u,w)=-u+w$。
 
 \NsfcSection{33}{项目的立项依据}{}
 
