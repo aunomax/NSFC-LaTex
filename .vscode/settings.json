@@ -2,7 +2,7 @@
     "workbench.settings.applyToAllProfiles": [
         "editor.tabSize"
     ],
-    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoBuild.run": "onSave",
     "latex-workshop.message.error.show": false,
     "latex-workshop.message.warning.show": false,
     "latex-workshop.showContextMenu": false,
@@ -42,10 +42,10 @@
             "name": "latexmk",
             "command": "latexmk",
             "args": [
+                "-xelatex",
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "-pdf",
                 "-outdir=%OUTDIR%",
                 "%DOCFILE%"
             ]
@@ -59,6 +59,12 @@
         }
     ],
     "latex-workshop.latex.recipes": [
+        {
+            "name": "LaTeXmk",
+            "tools": [
+                "latexmk"
+            ]
+        },
         {
             "name": "XeLaTeX",
             "tools": [
@@ -75,12 +81,6 @@
             "name": "BibTeX",
             "tools": [
                 "bibtex"
-            ]
-        },
-        {
-            "name": "LaTeXmk",
-            "tools": [
-                "latexmk"
             ]
         },
         {
